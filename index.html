@@ -4,5 +4,27 @@
   </head>
   <body>
     <h1>Download</h1>
+    <script>
+      function redirectDownload() {
+          var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+          if (/android/i.test(userAgent)) {
+              document.location.href = 'https://install.appcenter.ms/users/bvn.fpt-outlook.com/apps/einvoice-android/distribution_groups/public';
+              return;
+          }
+
+          if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+              document.location.href = 'https://install.appcenter.ms/users/bvn.fpt-outlook.com/apps/einvoice-ios/distribution_groups/public';
+              return;
+          }
+
+          document.location.href = 'https://install.appcenter.ms/users/bvn.fpt-outlook.com/apps/einvoice-android/distribution_groups/public';
+      }
+
+      window.onload = function()
+      {
+        redirectDownload();   
+      };
+    </script>
   </body>
 </html>
